@@ -6,9 +6,9 @@ dataSources:
     name: Precondition
     network: mainnet
     source:
-      address: "0x4aF8d9Ab04EA63C621C729EFd95d6BDCB8B15cf9"
+      address: "0xFbd98302512d09bEBBc2173bb617c2C55aaAAe69"
       abi: Precondition
-      startBlock: 552358
+      startBlock: 553256
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
