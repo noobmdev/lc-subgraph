@@ -1,0 +1,6 @@
+type Submission @entity {
+  id: ID!
+  documentId: BigInt!
+  caller: Bytes!
+  time: BigInt!
+}

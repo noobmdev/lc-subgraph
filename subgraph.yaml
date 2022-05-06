@@ -1,0 +1,24 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Precondition
+    network: mainnet
+    source:
+      address: "0x4aF8d9Ab04EA63C621C729EFd95d6BDCB8B15cf9"
+      abi: Precondition
+      startBlock: 552358
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Submission
+      abis:
+        - name: Precondition
+          file: ./abis/Precondition.json
+      eventHandlers:
+        - event: Submission(indexed uint256,indexed address,uint256)
+          handler: handleSubmission
+      file: ./src/mapping.ts

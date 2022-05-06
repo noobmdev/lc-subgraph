@@ -1,0 +1,8 @@
+{
+  "mainnet": {
+    "MyExample": {
+      "address": "0x45050470E9981D4af87557e1c9C721c0D12eFCDA",
+      "startBlock": 19000817
+    }
+  }
+}
