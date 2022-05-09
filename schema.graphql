@@ -4,3 +4,20 @@ type Submission @entity {
   caller: Bytes!
   time: BigInt!
 }
+
+type StandardLC @entity {
+  id: ID!
+  documentId: BigInt!
+  creator: Bytes!
+  address: Bytes!
+}
+
+type LCApproved @entity {
+  id: ID!
+  lc: StandardLC!
+  organization: Bytes!
+  stage: BigInt!
+  subStage: BigInt!
+  documentId: BigInt!
+  approvedTime: BigInt!
+}

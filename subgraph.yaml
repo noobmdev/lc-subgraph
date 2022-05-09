@@ -6,9 +6,9 @@ dataSources:
     name: Precondition
     network: mainnet
     source:
-      address: "0xFbd98302512d09bEBBc2173bb617c2C55aaAAe69"
+      address: "0x35EafFd74C7f13583744755Aa783769Fb0917d38"
       abi: Precondition
-      startBlock: 553256
+      startBlock: 578736
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
@@ -22,3 +22,43 @@ dataSources:
         - event: Submission(indexed uint256,indexed address,uint256)
           handler: handleSubmission
       file: ./src/mapping.ts
+  - kind: ethereum
+    name: LC
+    network: mainnet
+    source:
+      address: "0xCD3ebfa561b5B079A6056cf42de9D1714F11541b"
+      abi: StandardLCFactory
+      startBlock: 578321
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - StandardLC
+      abis:
+        - name: StandardLCFactory
+          file: ./abis/StandardLCFactory.json
+      eventHandlers:
+        - event: NewStandardLC(indexed uint256,indexed address,indexed address)
+          handler: handleNewStandardLC
+      file: ./src/mapping.ts
+# templates:
+#   - kind: ethereum
+#     name: StageContract
+#     network: mainnet
+#     source:
+#       abi: StageContract
+#     mapping:
+#       kind: ethereum/events
+#       apiVersion: 0.0.5
+#       language: wasm/assemblyscript
+#       file: ./src/lc.ts
+#       entities:
+#         - LCApproved
+#         - StandardLC
+#       abis:
+#         - name: StageContract
+#           file: ./abis/StageContract.json
+#       eventHandlers:
+#         - event: Approved(indexed address,bytes32,uint256,uint256,indexed uint256,uint256)
+#           handler: handleApproved
