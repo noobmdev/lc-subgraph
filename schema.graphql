@@ -6,15 +6,15 @@ type Submission @entity {
 }
 
 type StandardLC @entity {
-  id: ID!
+  id: Bytes! #LC address
   documentId: BigInt!
   creator: Bytes!
-  address: Bytes!
+  approves: [LCApproved!]! @derivedFrom(field: "lc")
 }
 
 type LCApproved @entity {
-  id: ID!
-  lc: StandardLC!
+  id: ID! # txn hash
+  lc: StandardLC! # LC address
   organization: Bytes!
   stage: BigInt!
   subStage: BigInt!
